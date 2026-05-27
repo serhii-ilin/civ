@@ -1,0 +1,40 @@
+iteration_id: baseline-v0.1
+run_mode: full_research
+compare_against: null
+
+focus_modules:
+  - MOD-RES
+  - MOD-GOV
+  - MOD-ECO
+  - MOD-LAW
+  - MOD-HMH
+  - MOD-EDU
+  - MOD-CUL
+  - MOD-ECOINF
+  - MOD-TAI
+  - MOD-DEF
+  - MOD-SIM
+
+locked_sections:
+  - canon/mission.md
+  - canon/values.md
+  - canon/evidence-standard.md
+  - canon/artifact-structure.md
+
+output_policy:
+  changed_sections_only: false
+  include_decision_log: true
+  include_assumption_register: true
+  include_source_register: true
+  include_adversarial_review: true
+  include_change_log: true
+
+artifact_root: artifacts
+
+quality_gates:
+  classify_empirical_claims: true
+  cite_empirical_claims: true
+  register_assumptions: true
+  register_decisions: true
+  register_contradictions: true
+  run_adversarial_review: true

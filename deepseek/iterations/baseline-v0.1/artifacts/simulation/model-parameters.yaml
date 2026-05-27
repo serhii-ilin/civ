@@ -1,0 +1,359 @@
+# ART-020: Model Parameters
+
+iteration: baseline-v0.1
+simulation_framework: mesa
+simulation_language: python
+model_type: agent_based_model
+
+# Agent Parameters
+agents:
+  citizen:
+    count: 10000  # scalable: 1k prototype, 100k production
+    attributes:
+      age:
+        distribution: uniform
+        range: [0, 100]
+      health_status:
+        type: categorical
+        values: [healthy, chronic_illness, acute_illness, disabled, recovering]
+        initial_distribution: [0.70, 0.15, 0.03, 0.10, 0.02]
+      education_level:
+        type: ordinal
+        values: [none, primary, secondary, tertiary, advanced]
+        initial_distribution: [0.02, 0.10, 0.40, 0.35, 0.13]
+      wealth:
+        distribution: lognormal
+        gini_target: 0.38
+      income:
+        distribution: lognormal
+        gini_target: 0.35
+        mean: 1.0  # normalized
+      social_capital:
+        type: float
+        range: [0.0, 1.0]
+        distribution: normal
+        mean: 0.5
+        std: 0.15
+      trust_in_institutions:
+        type: float
+        range: [0.0, 1.0]
+        distribution: normal
+        mean: 0.55
+        std: 0.20
+      cooperation_disposition:
+        type: categorical
+        values: [unconditional_cooperator, conditional_cooperator, altruist, self_interested, defector]
+        distribution: [0.05, 0.50, 0.20, 0.15, 0.10]
+      risk_tolerance:
+        type: float
+        range: [0.0, 1.0]
+        distribution: normal
+        mean: 0.4
+        std: 0.2
+      time_preference:
+        type: float  # discount rate
+        range: [0.0, 1.0]
+        distribution: normal
+        mean: 0.3
+        std: 0.15
+      civic_engagement:
+        type: float
+        range: [0.0, 1.0]
+        distribution: normal
+        mean: 0.5
+        std: 0.2
+      wellbeing:
+        type: float
+        range: [0.0, 1.0]
+        distribution: normal
+        mean: 0.7
+        std: 0.15
+      mental_health_status:
+        type: categorical
+        values: [thriving, managing, struggling, in_crisis]
+        initial_distribution: [0.50, 0.30, 0.15, 0.05]
+
+  household:
+    count: 4000
+    attributes:
+      size:
+        distribution: poisson
+        mean: 2.5
+      composition:  # derived from citizen agents
+        type: composite
+      consumption_basket:
+        type: float
+      savings_rate:
+        type: float
+        range: [0.0, 0.3]
+        distribution: normal
+        mean: 0.08
+        std: 0.05
+      care_burden:
+        type: float
+        range: [0.0, 1.0]
+
+  community_cell:
+    count: 50  # ~200 persons each for 10k total
+    attributes:
+      population:
+        type: int
+        range: [100, 300]
+        distribution: uniform
+      social_cohesion:
+        type: float
+        range: [0.0, 1.0]
+        initial: 0.6
+      cooperation_norm:
+        type: float
+        range: [0.0, 1.0]
+        initial: 0.7
+      institutional_quality:
+        type: float
+        range: [0.0, 1.0]
+        initial: 0.7
+      resilience_capacity:
+        type: float
+        range: [0.0, 1.0]
+        initial: 0.6
+      local_production:
+        food_self_sufficiency_months: 3
+        energy_self_sufficiency: false  # grid-connected with islanding capability
+        water_self_sufficiency_days: 14
+
+  enterprise:
+    count: 500
+    attributes:
+      type:
+        values: [worker_cooperative, consumer_cooperative, social_enterprise, conventional_firm, public_enterprise]
+        distribution: [0.30, 0.10, 0.15, 0.30, 0.15]
+      size:
+        type: ordinal
+        values: [micro, small, medium, large]
+        distribution: [0.60, 0.25, 0.10, 0.05]
+      productivity:
+        type: float
+        range: [0.5, 2.0]
+        distribution: normal
+        mean: 1.0
+        std: 0.25
+      wage_level:
+        type: float  # ratio to median
+        range: [0.8, 5.0]
+        distribution: lognormal
+        mean: 1.2
+      pay_ratio:
+        type: float
+        range: [1.0, 50.0]
+        distribution: lognormal
+        mean: 3.0
+        cap: 20.0  # per DEC-ECO-004
+      environmental_impact:
+        type: float  # per unit output
+        range: [0.0, 1.0]
+      innovation_rate:
+        type: float
+        range: [0.0, 0.1]
+        per_tick: 0.02
+
+  government_institution:
+    count: 6  # 1 national + 5 regional
+    attributes:
+      tier:
+        values: [national, regional]
+      competence:
+        type: float
+        range: [0.0, 1.0]
+      corruption_level:
+        type: float
+        range: [0.0, 1.0]
+        initial: 0.05
+      legitimacy:
+        type: float
+        range: [0.0, 1.0]
+      capture_risk:
+        type: float
+        range: [0.0, 1.0]
+      budget:
+        type: float
+        gdp_share: 0.35  # total government spending
+
+  natural_resource:
+    count: 10  # aggregate resource pools
+    attributes:
+      type:
+        values: [forest, fishery, freshwater, soil, biodiversity, atmosphere_carbon, mineral, energy_fossil, energy_renewable, land]
+      stock:
+        type: float  # relative to sustainable baseline
+        initial: 0.8
+      regeneration_rate:
+        type: float  # per tick
+      carrying_capacity:
+        type: float
+      extraction_rate:
+        type: float
+      degradation_status:
+        type: float
+        range: [0.0, 1.0]  # 0 = pristine, 1 = collapsed
+
+# Resource Flow Parameters
+resources:
+  food:
+    daily_per_capita_calories: 2500
+    production_efficiency: 0.8
+    waste_rate: 0.25
+    reserve_target_months: 12
+
+  energy:
+    daily_per_capita_kwh: 50
+    renewable_share_target: 1.0
+    storage_capacity_hours: 72
+    grid_resilience: 0.9
+
+  water:
+    daily_per_capita_liters: 150
+    sustainable_withdrawal_ratio: 0.4
+    treatment_efficiency: 0.95
+
+  materials:
+    circularity_rate_target: 0.8
+    recycling_rate: 0.5  # initial, trending toward target
+    landfill_tax_escalator: 0.02  # per year
+
+# Economic Parameters
+economy:
+  tax_rates:
+    income_progressive:
+      brackets: [0, 0.20, 0.35, 0.50, 0.60]
+      thresholds: [0, 0.5, 1.5, 5.0, 20.0]  # multiples of median
+    land_value: 0.05  # annual rate on unimproved value
+    wealth:
+      rate: 0.02
+      exemption_multiple_of_median: 20.0
+    carbon:
+      initial_price_per_tonne: 50
+      escalator: 0.05  # annual increase real
+    corporate:
+      base_rate: 0.25
+      cooperative_discount: 0.10
+      pay_ratio_penalty_threshold: 20.0
+    inheritance:
+      rate: 0.30
+      exemption: 3_000_000  # illustrative
+    financial_transactions: 0.003
+    vat:
+      base_rate: 0.15
+      essential_exemption: true
+
+  commons_layer:
+    services: [healthcare, education, housing_basic, food_basic, water, energy_basic, transport_public, digital_access, childcare, eldercare, disability_support]
+    quality_threshold: 0.7
+    funding_share_of_gdp: 0.25
+
+  market_structure:
+    monopoly_threshold_market_share: 0.25
+    cooperative_preference_in_procurement: 0.05  # price premium tolerance
+    innovation_rnd_share_of_gdp: 0.03
+
+# Behavioral Parameters
+behavior:
+  cooperation:
+    conditional_cooperator_threshold: 0.3  # cooperation proportion needed to cooperate
+    trust_update_rate: 0.1  # per interaction
+    trust_decay_rate: 0.001  # per tick without positive signal
+    corruption_contagion_rate: 0.05  # per contact with corrupt agent
+    corruption_detection_probability: 0.3  # with strong institutions
+
+  civic_participation:
+    voting_base_rate: 0.6
+    community_participation_base_rate: 0.3
+    sortition_acceptance_rate: 0.8
+    sortition_competence_gain: 0.2  # per service term
+
+  economic:
+    work_effort_autonomy_weight: 0.3
+    work_effort_compensation_weight: 0.4
+    work_effort_purpose_weight: 0.3
+    positional_consumption_weight: 0.15
+    savings_propensity_base: 0.08
+
+  migration:
+    emigration_threshold_satisfaction: 0.3
+    emigration_cost: 0.2  # proportion of wealth
+
+# Ecological Parameters
+ecology:
+  planetary_boundaries:
+    climate_co2_budget_gt: 500  # remaining carbon budget
+    biodiversity_loss_limit: 0.1  # extinction rate relative to background
+    land_system_change_threshold: 0.5  # forest cover relative to potential
+    freshwater_withdrawal_limit: 0.4  # proportion of renewable supply
+    nitrogen_boundary_tg_year: 62
+    phosphorus_boundary_tg_year: 6.2
+
+  tipping_points:
+    amazon_dieback_temperature: 3.0  # degrees C above pre-industrial
+    ice_sheet_collapse_temperature: 2.0
+    coral_reef_bleaching_temperature: 1.5
+    permafrost_thaw_temperature: 2.0
+
+  regeneration_rates:
+    forest: 0.02  # per year
+    fishery: 0.1
+    soil: 0.001  # very slow
+    freshwater_aquifer: 0.01
+
+# Simulation Parameters
+simulation:
+  ticks_per_year: 12  # monthly
+  duration_years: 100
+  seed: 42
+  repetitions: 50  # Monte Carlo
+
+  network:
+    topology: small_world  # Watts-Strogatz
+    rewiring_probability: 0.1
+    average_degree: 10
+
+  spatial:
+    dimensions: [100, 100]
+    community_radius: 10
+    toroidal: true
+
+  shocks:
+    enabled: true
+    schedule: scenario_driven  # from ART-021
+
+# Output Metrics
+metrics:
+  track_every_tick:
+    - gini_income
+    - gini_wealth
+    - trust_mean
+    - wellbeing_mean
+    - cooperation_rate
+    - corruption_rate
+    - carbon_emissions
+    - biodiversity_index
+    - gdp_per_capita
+    - gpi_per_capita
+    - poverty_rate
+    - unemployment_rate
+    - institutional_quality_mean
+    - democratic_backsliding_index
+    - participation_rate
+    - planetary_boundary_violations
+    - care_economy_contribution
+
+  track_on_event:
+    - shock_impact_assessment
+    - cascade_propagation
+    - recovery_time
+    - regime_change_detection
+
+  visualization:
+    dashboard: true
+    time_series: true
+    spatial_heatmap: true
+    network_graph: true
+    sankey_resource_flows: true
