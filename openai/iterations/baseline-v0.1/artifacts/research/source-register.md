@@ -1,0 +1,38 @@
+# Source Register
+
+Iteration: `baseline-v0.1`
+
+Status: `draft`
+
+## Sources
+
+| Source ID | Citation | URL/DOI | Type | Used In | Reliability Notes |
+| --- | --- | --- | --- | --- | --- |
+| SRC-001 | Ostrom, E. (1990). *Governing the Commons*. Cambridge University Press. | https://doi.org/10.1017/CBO9780511807763 | Book / institutional analysis | CLM-001, CLM-010 | Foundational comparative work on common-pool resource governance; strongest for bounded commons, not whole-civilization design. |
+| SRC-002 | World Bank. (2017). *World Development Report 2017: Governance and the Law*. | https://www.worldbank.org/en/publication/wdr2017 | Institutional report | CLM-002, CLM-004, CLM-011 | Strong synthesis of power, commitment, coordination, and cooperation problems. |
+| SRC-003 | OECD. (2020). *Innovative Citizen Participation and New Democratic Institutions: Catching the Deliberative Wave*. | https://www.oecd.org/gov/open-government/innovative-citizen-participation-new-democratic-institutions-catching-the-deliberative-wave.htm | Comparative policy report | CLM-003, CLM-012 | Useful catalog of deliberative processes; outcomes depend on mandate and integration with formal authority. |
+| SRC-004 | OECD. (2022). *Building Trust to Reinforce Democracy: Main Findings from the 2021 OECD Survey on Drivers of Trust in Public Institutions*. | https://www.oecd.org/governance/trust-in-government/ | Cross-national survey report | CLM-004, CLM-013 | High relevance to legitimacy; survey measures are sensitive to current events and culture. |
+| SRC-005 | World Justice Project. (2024). *Rule of Law Index*. | https://worldjusticeproject.org/rule-of-law-index/ | Comparative index | CLM-005, CLM-014 | Useful external benchmark; composite scores require caution. |
+| SRC-006 | United Nations General Assembly. (1966). *International Covenant on Civil and Political Rights*. | https://www.ohchr.org/en/instruments-mechanisms/instruments/international-covenant-civil-and-political-rights | Treaty | CLM-006 | Normative legal baseline, not empirical evidence of implementation. |
+| SRC-007 | UNODC. (2020). *Handbook on Restorative Justice Programmes*. | https://www.unodc.org/documents/justice-and-prison-reform/20-01146_Handbook_on_Restorative_Justice_Programmes.pdf | Practice handbook | CLM-015 | Strong for program design considerations; outcomes vary by offense type and safeguards. |
+| SRC-008 | WHO. (2022). *World Mental Health Report: Transforming Mental Health for All*. | https://www.who.int/publications/i/item/9789240049338 | Public health report | CLM-007, CLM-016 | Strong global synthesis; local service design still needs context-specific validation. |
+| SRC-009 | WHO Commission on Social Determinants of Health. (2008). *Closing the Gap in a Generation*. | https://www.who.int/publications/i/item/WHO-IER-CSDH-08.1 | Public health report | CLM-008, CLM-017 | Broad consensus on social determinants; policy effect sizes vary. |
+| SRC-010 | Felitti, V. J., et al. (1998). Relationship of childhood abuse and household dysfunction to many leading causes of death in adults. *American Journal of Preventive Medicine*. | https://doi.org/10.1016/S0749-3797(98)00017-8 | Observational study | CLM-018 | Seminal ACEs study; causal interpretation requires care. |
+| SRC-011 | Deci, E. L., and Ryan, R. M. (2000). The what and why of goal pursuits. *Psychological Inquiry*. | https://doi.org/10.1207/S15327965PLI1104_01 | Theory / review | CLM-019 | Strong motivational theory base; institutional translation needs field validation. |
+| SRC-012 | Heckman, J. J. (2006). Skill formation and the economics of investing in disadvantaged children. *Science*. | https://doi.org/10.1126/science.1128898 | Economic review | CLM-020 | Strong support for early capability investment; program quality matters. |
+| SRC-013 | Chetty, R., Hendren, N., and Katz, L. F. (2016). The effects of exposure to better neighborhoods on children. *Quarterly Journal of Economics*. | https://doi.org/10.1093/qje/qjv042 | Natural experiment / evaluation | CLM-021 | Strong evidence for childhood environment effects in one policy context. |
+| SRC-014 | IPCC. (2023). *AR6 Synthesis Report: Climate Change 2023*. | https://www.ipcc.ch/report/ar6/syr/ | Scientific assessment | CLM-009, CLM-022 | Highest-confidence climate synthesis. |
+| SRC-015 | Richardson, K., et al. (2023). Earth beyond six of nine planetary boundaries. *Science Advances*. | https://doi.org/10.1126/sciadv.adh2458 | Scientific assessment | CLM-023 | Strong boundary framing; thresholds remain contested for some processes. |
+| SRC-016 | IEA. (2023). *World Energy Outlook 2023*. | https://www.iea.org/reports/world-energy-outlook-2023 | Energy systems report | CLM-024 | Authoritative scenario analysis; projections are scenario-dependent. |
+| SRC-017 | OECD. (2015). *OECD Principles on Water Governance*. | https://www.oecd.org/en/topics/sub-issues/water-governance/the-oecd-principles-on-water-governance-and-implementation-strategy.html | Governance principles | CLM-025 | Useful design principles; not a substitute for hydrological modeling. |
+| SRC-018 | FAO, IFAD, UNICEF, WFP, and WHO. (2024). *The State of Food Security and Nutrition in the World 2024*. | https://www.fao.org/publications/sofi/2024/en/ | UN statistical report | CLM-026 | Strong food-security reference; global aggregates can hide local risk. |
+| SRC-019 | UNDRR. (2015). *Sendai Framework for Disaster Risk Reduction 2015-2030*. | https://www.undrr.org/publication/sendai-framework-disaster-risk-reduction-2015-2030 | International framework | CLM-027 | Normative and operational framework; implementation evidence must be local. |
+| SRC-020 | UN-Habitat. (2022). *World Cities Report 2022: Envisaging the Future of Cities*. | https://unhabitat.org/wcr/2022 | Urban systems report | CLM-028 | Strong urban trend synthesis; city typologies differ widely. |
+| SRC-021 | OECD. (2019). *OECD AI Principles*. | https://oecd.ai/en/ai-principles | Policy principles | CLM-029 | Internationally adopted AI governance baseline; high-level. |
+| SRC-022 | NIST. (2023). *Artificial Intelligence Risk Management Framework 1.0*. | https://www.nist.gov/itl/ai-risk-management-framework | Technical risk framework | CLM-030 | Strong operational risk structure; voluntary framework. |
+| SRC-023 | UNESCO. (2021). *Recommendation on the Ethics of Artificial Intelligence*. | https://www.unesco.org/en/artificial-intelligence/recommendation-ethics | International recommendation | CLM-031 | Useful rights and ethics baseline; implementation varies by jurisdiction. |
+| SRC-024 | NIST. (2024). *Cybersecurity Framework 2.0*. | https://www.nist.gov/cyberframework | Technical framework | CLM-032 | Strong cross-sector cybersecurity control framing. |
+| SRC-025 | European Union. (2016). Regulation (EU) 2016/679, General Data Protection Regulation. | https://eur-lex.europa.eu/eli/reg/2016/679/oj | Law | CLM-033 | Strong reference for privacy rights; jurisdiction-specific. |
+| SRC-026 | V-Dem Institute. (2024). *Democracy Report 2024*. | https://www.v-dem.net/publications/democracy-reports/ | Comparative democracy report | CLM-034 | Strong longitudinal democracy data; indicator construction requires caution. |
+| SRC-027 | OECD. (2019). *OECD Learning Compass 2030*. | https://www.oecd.org/education/2030-project/teaching-and-learning/learning/ | Education framework | CLM-035 | Useful capability framing; not direct evidence of one curriculum model. |
+| SRC-028 | Raworth, K. (2017). *Doughnut Economics*. Chelsea Green. | https://doughnuteconomics.org/about-doughnut-economics | Economic framework | CLM-036 | Useful social-foundation/ecological-ceiling heuristic; not a complete policy model. |

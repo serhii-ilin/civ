@@ -1,0 +1,62 @@
+iteration_id: baseline-v0.1
+status: draft
+
+population:
+  community_cell_size_range: [500, 5000]
+  regional_cluster_size_range: [50000, 500000]
+  household_readiness_days: 14
+  community_reserve_days_range: [30, 90]
+  regional_reserve_months_range: [6, 24]
+
+governance:
+  trust_initial_range: [0.35, 0.75]
+  audit_detection_base_probability: 0.2
+  audit_detection_with_high_observability: 0.55
+  emergency_power_default_expiration_days: 30
+  citizens_chamber_term_months: 12
+  rights_violation_legitimacy_penalty: high
+
+economy:
+  survival_floor_coverage_target: 0.99
+  essential_service_quality_floor: 0.85
+  wealth_concentration_review_threshold_top_1_percent_share: 0.2
+  market_concentration_review_threshold_hhi: 2500
+  maintenance_backlog_warning_threshold: 0.15
+
+health:
+  primary_care_access_target: 0.98
+  mental_health_wait_time_target_days: 14
+  crisis_response_non_police_target: 0.9
+  involuntary_intervention_review_threshold: 0.02
+  loneliness_warning_threshold: 0.25
+
+education:
+  adult_literacy_target: 0.99
+  civic_competence_target: 0.9
+  reskilling_access_target: 0.95
+  early_childhood_access_target: 0.98
+
+ecology:
+  carbon_budget_mode: declining_cap
+  water_withdrawal_max_fraction_of_recharge: 0.7
+  biodiversity_net_loss_allowed: false
+  material_throughput_mode: capped_with_circularity_targets
+  food_local_floor_fraction_range: [0.25, 0.6]
+
+technology:
+  high_impact_ai_requires_audit: true
+  final_human_review_for_rights_affecting_ai: true
+  public_algorithm_appeal_target_days: 30
+  cyber_recovery_target_days_critical_services: 7
+  data_retention_requires_purpose: true
+
+defense:
+  strategic_import_dependency_warning_threshold: 0.35
+  emergency_secrecy_review_days: 90
+  critical_infrastructure_islanding_required: true
+  migration_surge_capacity_multiplier: 2.0
+
+validation:
+  simulation_runs_per_scenario_minimum: 100
+  sensitivity_analysis_required: true
+  qualitative_review_required_for_rights_tradeoffs: true
