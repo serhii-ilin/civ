@@ -71,6 +71,27 @@ Agent outputs should be compared across:
 - Simulation readiness: whether the proposal can be modeled, stress-tested, and revised.
 - Implementation realism: whether the design can begin as a pilot or transition path rather than requiring instant civilizational replacement.
 
+## Baseline v0.1 Results
+
+The `openai/`, `claude/`, and `deepseek/` workspaces each produced a draft `baseline-v0.1` artifact set under `iterations/baseline-v0.1/artifacts/`. The three runs converge on a common research result: resilient civilization design depends less on a single ideal institution than on anti-capture structure, ecological constraints, care infrastructure, rights enforcement, institutional observability, and explicit correction loops.
+
+None of the baseline runs is validated yet. Each includes simulation scaffolding and stress-test definitions, but executable simulation results and external expert review remain future work.
+
+### Approach Summaries
+
+| Workspace | Research posture | Architecture pattern | Strengths | Main open risks |
+| --- | --- | --- | --- | --- |
+| `claude/` | Broadest and most enumerated research pass, with 102 sources, 76 evidence-graded claims, 45 failure modes, and 48 scored risks. | High-detail constitutional federation: mixed elections and sortition, eleven national governance bodies, explicit adversarial review, five-layer economy, universal services plus a cash floor, hard ecological ceilings, and extensive observability infrastructure. | Strongest internal traceability, richest failure-mode coverage, and most detailed anti-capture design. | High complexity, reliance on the independence of adversarial review, untested large-scale sortition, uncertain ecological-cap durability, and dependence on international coordination. |
+| `deepseek/` | Concrete and implementation-facing, with a strong emphasis on lived community design, cooperative economics, and pilot sequencing. | Human-scale federation built from 100-300 person community cells, regional coordination, national constitutional functions, universal basic services, cooperative and stakeholder enterprise, care infrastructure, and phased voluntary adoption. | Clearest day-to-day social model, strongest cooperative-economy emphasis, and most legible transition narrative. | Transition feasibility remains speculative, behavioral assumptions are demanding, community-cell scale may underfit complex infrastructure, and simulations have not been executed. |
+| `openai/` | Leaner and more contradiction-led, emphasizing governance/privacy boundaries, implementation gates, and unresolved assumptions. | Constitutional federation with community, regional, central, and independent-review layers; survival floor, commons infrastructure, regulated markets, strategic reserves, rights-bound AI governance, and pilot-first implementation. | Clearest treatment of observability vs. surveillance, competence gates vs. class hierarchy, and pilot safety checks. | Less granular than the other runs, fiscal design needs deeper modeling, risk coverage is narrower, and privacy/legal architecture needs more detail before a real pilot. |
+
+### Cross-Run Comparison
+
+- `claude/` optimizes for comprehensive architecture and adversarial auditability.
+- `deepseek/` optimizes for human-scale community life, cooperative ownership, and practical transition sequencing.
+- `openai/` optimizes for correction discipline, privacy boundaries, and pilotable governance controls.
+- A strong synthesis would combine Claude's failure-mode breadth, DeepSeek's community/cooperative pilot design, and OpenAI's privacy and implementation discipline.
+
 ## Expected Artifacts
 
 Each agent iteration should produce the artifact tree defined in its own `canon/artifact-structure.md`.
@@ -109,7 +130,9 @@ The core outputs include:
 
 ## Current Workspaces
 
-- `openai/`: active structured workspace with canon, modules, and baseline iteration config.
-- `claude/`: reserved workspace for an independent agent run.
+- `openai/`: completed draft `baseline-v0.1` with a concise, contradiction-led architecture and pilot-oriented implementation path.
+- `claude/`: completed draft `baseline-v0.1` with the most exhaustive research, architecture, failure-mode, and review coverage.
+- `deepseek/`: completed draft `baseline-v0.1` with the strongest community-cell, cooperative-economy, and transition narrative.
+- `template/`: reusable workspace skeleton for additional agent runs.
 
 Additional model folders can be added using the same internal structure.

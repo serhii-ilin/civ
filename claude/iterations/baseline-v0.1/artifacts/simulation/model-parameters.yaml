@@ -1,0 +1,209 @@
+# Model Parameters
+#
+# Artifact ID: ART-020
+# Iteration: baseline-v0.1
+# Status: draft
+# Change type: new
+# Owner module: MOD-SIM
+# Depends on: ART-009 through ART-017
+#
+# These are parameter defaults for the simulation blueprint (ART-019). They are
+# ranges and defaults, not commitments. Implementations should report which
+# parameter set is in use and run sensitivity analyses across ranges. All
+# economic, demographic, and ecological numbers are illustrative and must be
+# calibrated to any specific polity adopting the framework.
+#
+# Goodhart-Campbell caution (CLM-189): no single parameter drives a simulated
+# decision. Indicators and parameters cross-check.
+
+metadata:
+  iteration_id: baseline-v0.1
+  schema_version: 1
+  conventions:
+    - "ranges given as [low, default, high]"
+    - "currency: nominal model units; not pegged to any real currency"
+    - "time step: 1 year unless module-specific"
+
+# ---------- Demographic and Population ----------
+population:
+  initial_size: 5_000_000
+  median_age: [32, 38, 45]
+  fertility_total_rate: [1.4, 1.7, 2.1]
+  life_expectancy_years: [76, 82, 88]
+  net_migration_share_of_population: [-0.005, 0.003, 0.012]
+  urban_share: [0.6, 0.75, 0.9]
+  household_size: [2.0, 2.5, 3.2]
+
+# ---------- Governance (ART-009) ----------
+governance:
+  citizens_assembly_size: 400
+  citizens_assembly_term_months: 18
+  citizens_assembly_rotation_months: 6
+  representative_assembly_size: 500
+  representative_assembly_term_years: 4
+  representative_assembly_stagger_years: 2
+  constitutional_court_size: 11
+  constitutional_court_term_years: 12
+  executive_council_size: 7
+  executive_council_term_years: 6
+  adversarial_review_body_size: 21
+  adversarial_review_body_term_years: 8
+  future_generations_advocate_size: 7
+  future_generations_advocate_term_years: 10
+  campaign_finance_per_donor_cap_units: [0, 1000, 5000]
+  campaign_finance_public_match_ratio: [0, 4.0, 8.0]
+  emergency_default_expiry_days: 30
+  emergency_max_cumulative_days_without_supermajority: 180
+
+# ---------- Economy (ART-010) ----------
+economy:
+  layers:
+    L1_commons_share_of_basic_needs: [0.8, 1.0, 1.0]
+    L2_public_provisioning_share_of_essentials: [0.5, 0.85, 1.0]
+    L3_regulated_market_share_of_economy: [0.4, 0.6, 0.8]
+    L4_discretionary_market_share_of_economy: [0.05, 0.15, 0.3]
+  income:
+    universal_floor_share_of_median_income: [0.3, 0.45, 0.6]
+    pay_ratio_cap_within_firm_default: 20
+    pay_ratio_cap_within_firm_essential_sectors: 10
+    minimum_wage_share_of_median: [0.5, 0.65, 0.75]
+  taxation:
+    income_top_marginal_rate: [0.45, 0.6, 0.75]
+    wealth_tax_threshold_units: 5_000_000
+    wealth_tax_marginal_rate_at_threshold: [0.005, 0.015, 0.03]
+    wealth_tax_top_marginal_rate: [0.02, 0.05, 0.08]
+    inheritance_lifetime_tax_top_rate: [0.5, 0.7, 0.9]
+    land_value_tax_rate: [0.005, 0.015, 0.04]
+    carbon_tax_starting_units_per_t_co2e: [50, 120, 250]
+    carbon_tax_annual_growth_rate: [0.05, 0.08, 0.12]
+    automation_tax_rate_on_attributed_valueadd: [0.05, 0.12, 0.25]
+    financial_transaction_tax_rate: [0.0001, 0.001, 0.005]
+    vat_standard_rate: [0.1, 0.2, 0.25]
+    vat_essentials_rate: 0.0
+    vat_luxury_surcharge: [0.05, 0.15, 0.3]
+  banking:
+    bank_capital_ratio_minimum: [0.08, 0.12, 0.18]
+    countercyclical_buffer_max: 0.025
+    leverage_ratio_minimum: [0.03, 0.05, 0.08]
+    deposit_insurance_threshold_units: [25_000, 100_000, 500_000]
+  antitrust:
+    market_share_concentration_threshold_for_review: 0.40
+    market_share_concentration_threshold_for_structural_remedy: 0.60
+
+# ---------- Law and Justice (ART-011) ----------
+law:
+  legal_aid_coverage_share_of_serious_cases: [0.7, 0.95, 1.0]
+  case_duration_target_days_civil_court_first_instance: [120, 240, 365]
+  case_duration_target_days_criminal_court_first_instance: [90, 180, 270]
+  pre_trial_detention_share_of_detained: [0.05, 0.15, 0.3]
+  incarceration_rate_per_100k: [40, 100, 200]
+  restorative_program_coverage_share_of_eligible: [0.3, 0.6, 0.85]
+  police_use_of_force_per_100k_population_per_year_target: [0, 10, 50]
+
+# ---------- Health (ART-012) ----------
+health:
+  universal_coverage: true
+  primary_care_visit_wait_days_routine: [1, 5, 14]
+  mental_health_first_appointment_wait_days_urgent: [0, 1, 3]
+  mental_health_first_appointment_wait_days_routine: [3, 14, 30]
+  preventive_visit_share_of_total_visits: [0.15, 0.3, 0.5]
+  health_share_of_gdp: [0.06, 0.09, 0.13]
+  suicide_rate_per_100k_target: [5, 10, 15]
+  surge_capacity_pandemic_hospital_beds_per_100k: [5, 25, 60]
+
+# ---------- Education (ART-013) ----------
+education:
+  early_childhood_coverage_share_eligible: [0.7, 0.95, 1.0]
+  primary_completion_rate: [0.95, 0.99, 1.0]
+  upper_secondary_completion_rate: [0.85, 0.95, 1.0]
+  adult_learning_participation_rate_annual: [0.2, 0.5, 0.8]
+  teacher_salary_index_vs_median: [1.0, 1.4, 2.0]
+  class_size_primary: [12, 22, 30]
+  share_of_gdp_spent_on_education: [0.04, 0.06, 0.08]
+
+# ---------- Community and Culture (ART-014) ----------
+community:
+  cell_population_low: 5_000
+  cell_population_high: 15_000
+  loneliness_rate_target_share_adults: [0.05, 0.12, 0.2]
+  community_event_attendance_share_adults_per_year: [0.4, 0.7, 0.9]
+  associational_membership_share_adults: [0.3, 0.6, 0.85]
+
+# ---------- Ecology and Infrastructure (ART-015) ----------
+ecology:
+  ghg_emissions_per_capita_tCO2e_target_year1: [4.0, 6.0, 9.0]
+  ghg_emissions_trajectory_annual_reduction: [0.04, 0.06, 0.08]
+  renewable_share_electricity_year_X: [0.6, 0.85, 1.0]
+  material_footprint_t_per_capita_target: [4, 7, 12]
+  biodiversity_intactness_target: [0.7, 0.85, 0.95]
+  water_stress_index_max_acceptable: [0.2, 0.4, 0.6]
+  protected_areas_share_of_land: [0.17, 0.3, 0.5]
+  protected_areas_share_of_marine: [0.1, 0.3, 0.5]
+  housing_quality_minimum_compliance_rate: [0.85, 0.95, 1.0]
+  infrastructure_maintenance_backlog_share_of_value: [0.02, 0.08, 0.2]
+  reserve_duration_days_food_at_basic: [30, 120, 365]
+  reserve_duration_days_energy_critical: [10, 30, 90]
+  reserve_duration_days_medicine_essential: [30, 90, 180]
+
+# ---------- Technology and AI (ART-016) ----------
+technology:
+  ai_high_risk_audit_coverage: 1.0
+  data_breach_rate_per_million_records_target: [0.5, 5.0, 20.0]
+  encryption_standard_strength_bits_min: 256
+  open_source_share_public_sector_software: [0.4, 0.7, 0.95]
+  observability_decision_log_completeness_target: [0.9, 0.98, 1.0]
+  observability_publication_latency_days_max: 30
+  algorithmic_registry_coverage_public_sector: 1.0
+
+# ---------- Defense and External (ART-017) ----------
+defense:
+  military_share_of_gdp: [0.005, 0.02, 0.04]
+  civil_defense_drill_frequency_per_year: 1
+  border_processing_target_days_asylum_initial: [3, 30, 90]
+  border_processing_target_days_asylum_final: [60, 180, 365]
+  refugee_acceptance_share_of_applications: [0.3, 0.55, 0.85]
+  foreign_direct_investment_screening_threshold_units: [10_000_000, 100_000_000, 1_000_000_000]
+
+# ---------- Behavioral (ART-007) ----------
+behavior:
+  conditional_cooperation_threshold_observed_rate: [0.4, 0.6, 0.75]
+  costly_punishment_willingness_share_population: [0.1, 0.3, 0.5]
+  procedural_fairness_compliance_elasticity: [0.4, 0.7, 1.0]
+  time_discount_annual_default: [0.02, 0.05, 0.1]
+  in_group_bias_strength: [0.1, 0.3, 0.6]
+  trust_radius_default_kin_to_local: [0.3, 0.6, 0.9]
+  trust_radius_default_strangers: [0.1, 0.4, 0.7]
+  norm_shift_critical_mass_share_population: [0.1, 0.25, 0.4]
+
+# ---------- Simulation Run Settings ----------
+run:
+  random_seeds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  simulation_years: 50
+  warm_up_years: 5
+  reporting_frequency_years: 1
+  multi_run_aggregation: "median_and_iqr"
+  sensitivity_analysis_method: "morris_sobol_hybrid"
+  cross_method_replication:
+    abm: required
+    system_dynamics: required
+    network: optional
+    game_theoretic: optional
+    qualitative_scenario: required
+
+# ---------- Indicator Targets (cross-referenced TAR-Q) ----------
+indicator_targets:
+  gini_post_tax_transfer_max: 0.30
+  top_decile_income_share_max: 0.25
+  healthy_life_expectancy_min_year50: 75
+  trust_in_institutions_index_min: 0.6
+  rights_violations_rate_per_100k_max: 50
+  loneliness_rate_max_share_adults: 0.15
+  recovery_time_days_max_after_severe_shock: 90
+
+# ---------- Open Issues ----------
+open_issues:
+  - "Many parameters are illustrative; specific calibration requires real polity data."
+  - "Behavioral parameters are WEIRD-biased (CLM-060); cross-cultural variation required."
+  - "Macro-economic parameters interact in ways the YAML cannot fully express; see system-dynamics module."
+  - "Ecology parameters depend on starting ecological state; not portable across geographies without recalibration."
+  - "Defense parameters depend strongly on geographic and alliance context."
